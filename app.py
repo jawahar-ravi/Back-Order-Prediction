@@ -12,7 +12,7 @@ import sklearn
 import pickle
 
 app = Flask(__name__)
-model = pickle.load(open('model_rf.pkl', 'rb'))
+model = pickle.load(open('model_dt.pkl', 'rb'))
 
 @app.route('/', methods=['GET'])
 def home():
