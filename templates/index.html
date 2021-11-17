@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Back order</title>
+    
+</head>    
+
+<body>
+
+    <div style="color:black">
+        <form action="{{ url_for('predict')}}" method="post">
+             <h1>Back Order Prediction</h1></br>
+             <h2>Please enter the details to predict wheather the product will be purchased again or not</h2></br></br>
+             <h3><label>national_inv : </label><input id="first" name="national_inv" required="required"></h3></br>
+             <h3><label>lead_time : </label><input  id="second" name="lead_time" required="required"></h3></br>
+             <h3><label>in_transit_qty : </label><input id="third" name="in_transit_qty" required="required"></h3></br>
+             <h3><label>forecast_3_month : </label><input id="fourth" name="forecast_3_month" required="required"></h3></br>
+             <h3><label>sales_1_month : </label><input id="fifth" name="sales_1_month" required="required"></h3></br>
+             <h3><label>min_bank : </label><input id="sixth" name="min_bank" required="required"></h3></br>
+             <h3><label>perf_6_month_avg : </label><input id="seventh" name="perf_6_month_avg" required="required"></h3></br>
+             
+             
+             <h3><label>potential_issue : </label><select name= "potential_issue" id="research" required="required"></h3></br>
+                 <option name="potential_issue" value="Yes">Yes</option>
+                 <option name="potential_issue" value="No">No</option>
+             </select>
+             
+             </br></br><h3><label>deck_risk : </label><select id="resea" name="deck_risk" required="required"></h3></br>
+                 <option value="Yes">Yes</option>
+                 <option value="No">No</option>
+             </select>
+             </br></br><h3><label>oe_constraint : </label><select id="resea" name="oe_constraint" required="required"></h3></br>
+                 <option value="Yes">Yes</option>
+                 <option value="No">No</option>
+             </select>
+             </br></br><h3><label>ppap_risk : </label><select id="resea" name="ppap_risk" required="required"></h3></br>
+                 <option value="Yes">Yes</option>
+                 <option value="No">No</option>
+             </select>
+             </br></br><h3><label>stop_auto_buy : </label><select id="research" name="stop_auto_buy" required="required"></h3></br>
+                 <option value="Yes">Yes</option>
+                 <option value="No">No</option>
+             </select>
+             </br></br><h3><label>rev_stop : </label><select id="resea" name="rev_stop" required="required"></h3></br>
+                 <option value="Yes">Yes</option>
+                 <option value="No">No</option>
+             </select>
+             <br></br><button id="sub" type="submit "> Predict </button>
+             <br>
+        </form>
+        
+        
+        
+    
+    </div>       
+    <style type="text/css">
+     *{
+      margin:0;
+      padding:0;
+      }
+      body {
+          background-color: lightblue;
+          text-align: center;
+          padding: 0px;
+      }     
+     .regform{
+                width:800px;
+                background-color:rgb(0,0,0,6);
+                margin:auto;
+                color:#FFFFFF;
+                padding:10px 0px 10px 0 px;
+                text-align:centre;
+                border-radius: 15px 15px 0px 0px;
+             }
+     .main{
+           background-color:rgb(0,0,0,0.5);
+           width:auto;
+           margin:auto;
+           }
+         form{
+              padding:10px
+              }  
+    #name{
+           width:100%;
+           height:100px;
+         }
+         
+          #box {
+              border-radius: 60px;
+              border-color: 45px;
+              border-style: solid;
+              font-family: cursive;
+              text-align: center;
+              background-color: rgb(168, 131, 61);
+              font-size: medium;
+              position: absolute;
+              width: 700px;
+              bottom: 9%;
+              height: 850px;
+              right: 30%;
+              padding: 0px;
+              margin: 0px;
+              font-size: 14px;
+          }
+          
+           #fuel {
+               width: 83px;
+               height: 43px;
+               text-align: center;
+               border-radius: 14px;
+               font-size: 20px;
+           }
+           fuel:hover {
+               background-color: coral;
+           }
+           
+           #research {
+               width: 99px;
+               height: 30px;
+               text-align: center;
+               border-radius: 14px;
+               font-size: 18px;
+           }
+           
+           #research:hover {
+               background-color: coral;
+           }
+           
+           #resea {
+               width: 99px;
+               height: 30px;
+               text-align: center;
+               border-radius: 14px;
+               font-size: 18px;
+           }
+           
+           #resea:hover {
+               background-color: coral;
+           }
+           
+           #sub {
+               width: 120px;
+               height: 43px;
+               text-align: center;
+               border-radius: 14px;
+               font-size: 18px;
+           }
+           
+           #sub:hover {
+               background-color: darkcyan;
+           }
+           
+           #first {
+               border-radius: 14px;
+               height: 25px;
+               font-size: 20px;
+               text-align: center;
+           }
+           
+           #second {
+               border-radius: 14px;
+               height: 25px;
+               font-size: 20px;
+               text-align: center;
+           }
+           
+           #third {
+               border-radius: 14px;
+               height: 25px;
+               font-size: 20px;
+               text-align: center;
+           }
+           
+           #fourth {
+               border-radius: 14px;
+               height: 25px;
+               font-size: 20px;
+               text-align: center;
+           }
+           #fifth {
+               border-radius: 14px;
+               height: 25px;
+               font-size: 20px;
+               text-align: center;
+           }
+           #sixth {
+               border-radius: 14px;
+               height: 25px;
+               font-size: 20px;
+               text-align: center;
+           }
+           #seventh {
+               border-radius: 14px;
+               height: 25px;
+               font-size: 20px;
+               text-align: center;
+           }
+       
+    </style>
+
+    
+</body>
+
+</html>   
